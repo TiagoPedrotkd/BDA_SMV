@@ -76,6 +76,7 @@ def enrich_nvidia_data(df, ticker="NVDA", printing = False):
 
         # ✅ Price-to-Sales (P/S) Ratio
         total_revenue = info.get("totalRevenue", None)
+        df["Total_Revenue_NVDA"] = total_revenue if total_revenue else None
         df["PS_Ratio_NVDA"] = df["Market_Cap_NVDA"] / total_revenue if total_revenue else None
 
         # ✅ Debt & Cash (Quarterly Data → Resampled to Daily)
@@ -155,6 +156,7 @@ def enrich_intel_data(df, ticker="INTC", printing = False):
 
         # ✅ Price-to-Sales (P/S) Ratio
         total_revenue = info.get("totalRevenue", None)
+        df["Total_Revenue_INTC"] = total_revenue if total_revenue else None
         df["PS_Ratio_INTC"] = df["Market_Cap_INTC"] / total_revenue if total_revenue else None
 
         # ✅ Debt & Cash (Quarterly Data → Resampled to Daily)
@@ -234,6 +236,7 @@ def enrich_amd_data(df, ticker="AMD", printing = False):
 
         # ✅ Price-to-Sales (P/S) Ratio
         total_revenue = info.get("totalRevenue", None)
+        df["Total_Revenue_AMD"] = total_revenue if total_revenue else None
         df["PS_Ratio_AMD"] = df["Market_Cap_AMD"] / total_revenue if total_revenue else None
 
         # ✅ Debt & Cash (Quarterly Data → Resampled to Daily)
