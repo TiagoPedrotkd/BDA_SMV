@@ -31,6 +31,8 @@ class StreamConfig:
 
     LOGGING_ENABLED = True
     DEBUG_MODE = True
+    ENABLE_GRAPHFRAMES = True
+    SPARK_LOG_LEVEL = "WARN"
 
     @staticmethod
     def g_timestamp():
