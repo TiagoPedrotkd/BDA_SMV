@@ -3,7 +3,7 @@ from datetime import datetime
 
 class StreamConfig:
     
-    PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     
     DATA_DIR = os.path.join(PROJECT_ROOT, "data")
     STREAM_INPUT_DIR = os.path.join(DATA_DIR, "streaming")

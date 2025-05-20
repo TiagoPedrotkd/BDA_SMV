@@ -1,13 +1,13 @@
 from pyspark.sql import DataFrame
-from streaming.spark_session import SparkInitializer
-from streaming.transformations import Transformations
-from utils.stream_utils import StreamUtils
+from src.streaming.spark_session import SparkInitializer
+from src.streaming.transformations import Transformations
+from src.utils.stream_utils import StreamUtils
 from src.config_stream import StreamConfig
 
 class StreamProcessor:
     
     def __init__(self):
-        self.spark = SparkInitializer.get_spark()
+        self.spark = SparkInitializer.g_spark()
         self.utils = StreamUtils(base_path=StreamConfig.EXPORT_DIR)
 
     def read_stream(self) -> DataFrame:
