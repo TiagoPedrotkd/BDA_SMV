@@ -1,4 +1,4 @@
-from streaming.streamer import StreamProcessor
+from src.streaming.streamer import StreamProcessor
 
 if __name__ == "__main__":
     processor = StreamProcessor()
