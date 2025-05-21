@@ -114,16 +114,13 @@ class APIIngestor:
             return
 
         os.makedirs(StreamConfig.STREAM_INPUT_DIR, exist_ok=True)
-        df = df.sort_index()
+        df = df.sort_values(by=["Date", "Time"])
 
         date_str = datetime.now().strftime("%Y-%m-%d")
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"nvda_full_{date_str}_{timestamp}.csv"
         path = os.path.join(StreamConfig.STREAM_INPUT_DIR, filename)
 
-        df.reset_index(inplace=True)
-        df["Date"] = df["datetime"].dt.strftime("%Y-%m-%d")
-        df["Time"] = df["datetime"].dt.strftime("%H:%M")
         df.to_csv(path, index=False)
         print(f"📤 CSV completo guardado: {path}")
 

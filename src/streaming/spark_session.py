@@ -10,7 +10,6 @@ class SparkInitializer:
     def g_spark(cls) -> SparkSession:
 
         if cls._spark_instance is None:
-            os.environ["HADOOP_HOME"] = r"C:\hadoop"
             builder = SparkSession.builder \
                 .appName(StreamConfig.SPARK_APP_NAME) \
                 .master("local[*]") \

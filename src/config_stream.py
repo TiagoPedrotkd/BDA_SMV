@@ -1,5 +1,6 @@
 import os
 from datetime import datetime
+from pyspark.sql.types import StructType, StringType, DoubleType
 
 class StreamConfig:
     
@@ -14,14 +15,28 @@ class StreamConfig:
     FIGURES_DIR = os.path.join(REPORTS_DIR, "figures")
     EXPORT_DIR = os.path.join(PROJECT_ROOT, "exports")
 
-    DATA_SCHEMA = (
-        "Date STRING, "
-        "Open DOUBLE, "
-        "High DOUBLE, "
-        "Low DOUBLE, "
-        "Close DOUBLE, "
-        "Volume DOUBLE"
-    )
+    DATA_SCHEMA = StructType() \
+        .add("Date", StringType()) \
+        .add("Time", StringType()) \
+        .add("open", DoubleType()) \
+        .add("high", DoubleType()) \
+        .add("low", DoubleType()) \
+        .add("close", DoubleType()) \
+        .add("volume", DoubleType()) \
+        .add("RSI_rsi", DoubleType()) \
+        .add("SMA_sma", DoubleType()) \
+        .add("EMA_ema", DoubleType()) \
+        .add("MACD_macd", DoubleType()) \
+        .add("MACD_macd_signal", DoubleType()) \
+        .add("MACD_macd_hist", DoubleType()) \
+        .add("STOCH_slow_k", DoubleType()) \
+        .add("STOCH_slow_d", DoubleType()) \
+        .add("ADX_adx", DoubleType()) \
+        .add("CCI_cci", DoubleType()) \
+        .add("ATR_atr", DoubleType()) \
+        .add("BBANDS_upper_band", DoubleType()) \
+        .add("BBANDS_middle_band", DoubleType()) \
+        .add("BBANDS_lower_band", DoubleType())
 
     SPARK_APP_NAME = "NVIDIA Structured Streaming"
 
